@@ -5,7 +5,9 @@ OUTPATH="creak_n$TOTALTF"
 
 mkdir -p $OUTPATH &&
 
-# generate similar looking contradictions
+# CONTRADICTION + VERIFICATION OF CONTRADICTION
+
+# generate similar looking contradictions to true claims
 
 torchrun --nproc_per_node 1 query_chat_llama.py \
 --ckpt_dir llama-2-7b-chat/ \
@@ -19,7 +21,7 @@ torchrun --nproc_per_node 1 query_chat_llama.py \
 --output_path "$OUTPATH/claims.json" &&
 
 
-# verify
+# verify (optional to see what these claims would have marked independently)
 
 torchrun --nproc_per_node 1 query_chat_llama.py \
 --ckpt_dir llama-2-7b-chat/ \
@@ -31,7 +33,7 @@ torchrun --nproc_per_node 1 query_chat_llama.py \
 --output_path "$OUTPATH/claims.json" &&
 
 
-# contradiction
+# contradiction - double check if the model thinks the claims are contradictory
 
 torchrun --nproc_per_node 1 query_chat_llama.py \
 --ckpt_dir llama-2-7b-chat/ \
@@ -44,6 +46,9 @@ torchrun --nproc_per_node 1 query_chat_llama.py \
 --output_path "$OUTPATH/claims.json" \
 --max_gen_len 256
 
+
+
+# IMPLICATION + VERIFICATION OF IMPLICATION
 
 # implication
 
@@ -74,9 +79,10 @@ torchrun --nproc_per_node 1 query_chat_llama.py \
 
 
 
+# OTHER
 
 
-# verify implications
+# verify (optional to see what these claims would have marked independently)
 
 # torchrun --nproc_per_node 1 query_chat_llama.py \
 # --ckpt_dir llama-2-7b-chat/ \

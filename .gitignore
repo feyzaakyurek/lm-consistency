@@ -1,3 +1,18 @@
+# User specified
+csv_outputs/
+cache/
+creak_n*/
+llama-2*
+creak_chat.py
+*.csv
+openai_key.txt
+mquake_chat.py
+sample_run.sh
+explore.ipynb
+.vscode/
+creak_generate_similar_claims.py
+*/__pycache__/*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
