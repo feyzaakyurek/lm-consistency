@@ -2,3 +2,12 @@ torch
 fairscale
 fire
 sentencepiece
+transformers
+accelerate
+evaluate
+deepspeed
+tqdm
+datasets
+peft
+tensorflow
+tensorboardX
